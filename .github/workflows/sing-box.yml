@@ -14,7 +14,8 @@ jobs:
       - name: Set up Go 1.20
         uses: actions/setup-go@v2
         with:
-          go-version: 1.20
+          go-version: '1.20'
+        
       - name: Build windows sing-box
         run: |
           GOOS=windows GOARCH=amd64 go install -v -tags with_clash_api github.com/sagernet/sing-box/cmd/sing-box@latest
