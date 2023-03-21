@@ -1,0 +1,37 @@
+# 每一周定时 编译一次sing-box 全平台二进制文件
+name: sing-box
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Go 1.20
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.20
+      - name: Build windows sing-box
+        run: |
+          GOOS=windows GOARCH=amd64 go install -v -tags with_clash_api github.com/sagernet/sing-box/cmd/sing-box@latest
+
+      - name: Build linux sing-box
+        run: |
+          GOOS=linux GOARCH=amd64 go install -v -tags with_clash_api github.com/sagernet/sing-box/cmd/sing-box@latest
+
+      - name: Build darwin sing-box
+        run: |
+          GOOS=darwin GOARCH=amd64 go install -v -tags with_clash_api github.com/sagernet/sing-box/cmd/sing-box@latest
+
+      - name: Upload sing-box
+        uses: actions/upload-artifact@v2
+        with:
+          name: sing-box
+          path: |
+            ${{ github.workspace }}/bin/sing-box.exe
+            ${{ github.workspace }}/bin/sing-box
+            ${{ github.workspace }}/bin/sing-box.darwin
