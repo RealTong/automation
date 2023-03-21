@@ -50,4 +50,6 @@ jobs:
         with:
           name: sing-box
           path: |
-            ~/go/bin/**/*
+            ~/go/bin/sing-box
+            ~/go/bin/darwin_amd64/sing-box
+            ~/go/bin/windows_amd64/sing-box.exe
