@@ -45,11 +45,23 @@ jobs:
           echo "✅ Darwin sing-box build success!"
           ls ~/go/bin
         
-      - name: Upload sing-box
+      - name: Upload sing-box for linux
         uses: actions/upload-artifact@v3
         with:
           name: sing-box
           path: |
             ~/go/bin/sing-box
+
+      - name: Upload sing-box for darwin
+        uses: actions/upload-artifact@v3
+        with:
+          name: sing-box
+          path: |
             ~/go/bin/darwin_amd64/sing-box
+
+      - name: Upload sing-box for windows
+        uses: actions/upload-artifact@v3
+        with:
+          name: sing-box
+          path: |
             ~/go/bin/windows_amd64/sing-box.exe
