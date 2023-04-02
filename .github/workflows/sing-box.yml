@@ -33,15 +33,15 @@ jobs:
           echo "🚧 Building sing-box for Windows..."
           export GOARCH=amd64
           export GOOS=windows
-          go install -v -tags with_quic,with_wireguard,with_gvisor,with_clash_api,with_ech,with_utls github.com/sagernet/sing-box/cmd/sing-box@latest
+          go install -v -tags with_quic,with_grpc,with_dhcp,with_wireguard,with_shadowsocksr,with_ech,with_utls,with_reality_server,with_acme,with_clash_api,with_gvisor github.com/sagernet/sing-box/cmd/sing-box@latest
           echo "✅ Windows sing-box build success!"
           echo "🚧 Building sing-box for Linux..."
           export GOOS=linux
-          go install -v -tags with_quic,with_wireguard,with_gvisor,with_clash_api,with_ech,with_utls github.com/sagernet/sing-box/cmd/sing-box@latest
+          go install -v -tags with_quic,with_grpc,with_dhcp,with_wireguard,with_shadowsocksr,with_ech,with_utls,with_reality_server,with_acme,with_clash_api,with_gvisor github.com/sagernet/sing-box/cmd/sing-box@latest
           echo "✅ Linux sing-box build success!"
           echo "🚧 Building sing-box for Darwin..."
           export GOOS=darwin
-          go install -v -tags with_quic,with_wireguard,with_gvisor,with_clash_api,with_ech,with_utls github.com/sagernet/sing-box/cmd/sing-box@latest
+          go install -v -tags with_quic,with_grpc,with_dhcp,with_wireguard,with_shadowsocksr,with_ech,with_utls,with_reality_server,with_acme,with_clash_api,with_gvisor github.com/sagernet/sing-box/cmd/sing-box@latest
           echo "✅ Darwin sing-box build success!"
           ls ~/go/bin
         
